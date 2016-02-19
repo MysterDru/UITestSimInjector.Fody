@@ -1,0 +1,39 @@
+﻿<Properties StartupItem="NuGet/Nuget.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="NuGet/Nuget.csproj">
+    <Files>
+      <File FileName="NuGet/packages.config" Line="4" Column="12" />
+      <File FileName="NuGet/UITest.SimInjector.Fody.nuspec" Line="21" Column="11" />
+      <File FileName="NuGet/Nuget.csproj" Line="38" Column="1" />
+      <File FileName="Tests/AssemblyWithValidSimulatorTests.cs" Line="23" Column="84" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="BasicFodyAddin" expanded="True">
+            <Node name="Nuget" expanded="True" />
+            <Node name="SimulatorInjector" selected="True" />
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.NUnit.TestPad">
+        <State name="__root__">
+          <Node name="BasicFodyAddin" expanded="True">
+            <Node name="Test Assemblies" expanded="True" />
+            <Node name="Tests" expanded="True" selected="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/dfrisk/Dev/git/UITests-Simulator-Injector-AddIn/Tests/WeaverTests.cs" line="48" column="1" />
+      <Breakpoint file="/Users/dfrisk/Dev/git/UITests-Simulator-Injector-AddIn/Tests/WeaverTests.cs" line="87" column="1" />
+      <Breakpoint file="/Users/dfrisk/Dev/git/UITests-Simulator-Injector-AddIn/Tests/WeaverTests.cs" line="60" column="1" />
+      <Breakpoint file="/Users/dfrisk/Dev/git/UITests-Simulator-Injector-AddIn/Tests/WeaverTests.cs" line="106" column="1" />
+      <Breakpoint file="/Users/dfrisk/Dev/git/UITests-Simulator-Injector-AddIn/Tests/WeaverTests.cs" line="44" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

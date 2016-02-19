@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata minClientVersion="2.8">
+    <id>UITest.SimInjector.Fody</id>
+    <version>$version$</version>
+    <title>UITest iOS Simulator Injection w/ Fody</title>
+    <authors>Drew Frisk</authors>
+    <owners>Drew Frisk</owners>
+    <developmentDependency>true</developmentDependency>
+    <licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
+    <projectUrl>http://github.com/keannan5390/UITestSimInjector.Fody</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A Fody plugin in inject TestFixture attributes to define iOS simulators. Allowing you to run tests fixtures against multiple simulators locally.</description>
+    <summary />
+    <language>en-AU</language>
+    <tags>Fody, UITest, Xamarin, iOS</tags>
+    <dependencies>
+      <dependency id="Fody" version="1.29.2"/>
+    </dependencies>
+  </metadata>
+</package>

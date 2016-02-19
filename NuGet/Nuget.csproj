@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{63786CE5-D899-43DF-AD4E-C2CA3BAC3FC2}</ProjectGuid>
+    <NuGetPackageImportStamp>8682f2ae</NuGetPackageImportStamp>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>Nuget</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <ConfigurationName>Debug</ConfigurationName>
+    <OutputPath>bin\Debug</OutputPath>
+    <WarningLevel>4</WarningLevel>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <ConfigurationName>Release</ConfigurationName>
+    <OutputPath>bin\Release</OutputPath>
+    <WarningLevel>4</WarningLevel>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="install.ps1" />
+    <None Include="packages.config" />
+    <None Include="uninstall.ps1" />
+    <Content Include="Fody_ToBeDeleted.txt" />
+    <None Include="UITest.SimInjector.Fody.nuspec" />
+  </ItemGroup>
+  <Target Name="Clean">
+    <RemoveDir Directories="$(SolutionDir)NuGetBuild" />
+  </Target>
+  <Target Name="Build" DependsOnTargets="NuGetBuild" />
+  <Target Name="ReBuild" DependsOnTargets="NuGetBuild" />
+  <Target Name="NuGetBuild" DependsOnTargets="Clean">
+    <MakeDir Directories="$(SolutionDir)NuGetBuild" />
+    <Copy SourceFiles="$(SolutionDir)SimulatorInjector\bin\$(ConfigurationName)\SimulatorInjector.dll" DestinationFolder="$(SolutionDir)NuGetBuild\Lib\portable-net4+sl4+wp8+win8+wpa81+MonoAndroid16+MonoTouch40" />
+    <Copy SourceFiles="$(SolutionDir)SimulatorInjector\bin\$(ConfigurationName)\SimulatorInjector.xml" DestinationFolder="$(SolutionDir)NuGetBuild\Lib\portable-net4+sl4+wp8+win8+wpa81+MonoAndroid16+MonoTouch40" />
+    <Copy SourceFiles="$(SolutionDir)NuGet\UITest.SimInjector.Fody.nuspec" DestinationFolder="$(SolutionDir)NuGetBuild" />
+    <Copy SourceFiles="$(SolutionDir)SimulatorInjector.Fody\bin\$(ConfigurationName)\SimulatorInjector.Fody.dll" DestinationFolder="$(SolutionDir)NuGetBuild" />
+    <Copy SourceFiles="$(SolutionDir)NuGet\Fody_ToBeDeleted.txt" DestinationFolder="$(SolutionDir)NuGetBuild\Content" />
+    <Copy SourceFiles="$(ProjectDir)install.ps1" DestinationFolder="$(SolutionDir)NuGetBuild\Tools" />
+    <Copy SourceFiles="$(ProjectDir)uninstall.ps1" DestinationFolder="$(SolutionDir)NuGetBuild\Tools" />
+    <PepitaPackage.CreatePackageTask NuGetBuildDirectory="$(SolutionDir)NuGetBuild" MetadataAssembly="$(SolutionDir)SimulatorInjector.Fody\bin\$(ConfigurationName)\SimulatorInjector.Fody.dll" />
+  </Target>
+  <Import Project="..\packages\PepitaPackage.1.21.4\build\PepitaPackage.targets" Condition="Exists('..\packages\PepitaPackage.1.21.4\build\PepitaPackage.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\PepitaPackage.1.21.4\build\PepitaPackage.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PepitaPackage.1.21.4\build\PepitaPackage.targets'))" />
+  </Target>
+</Project>
